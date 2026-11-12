@@ -1,0 +1,31 @@
+erDiagram
+    students {
+        int student_id PK
+        string name
+        string email
+    }
+    
+    librarians {
+        int librarian_id PK
+        string name
+        string email
+    }
+    
+    books {
+        int book_id PK
+        string title
+        string author
+        string isbn
+    }
+    
+    borrowings {
+        int borrowing_id PK
+        int student_id FK
+        int book_id FK
+        date borrow_date
+        date return_date
+    }
+    
+    students ||--o{ borrowings : borrows
+    books ||--o{ borrowings : "is borrowed in"
+    librarians ||--o{ books : manages
