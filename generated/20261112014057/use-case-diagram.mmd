@@ -1,0 +1,15 @@
+flowchart LR
+  Student([Student])
+  Librarian([Librarian])
+  
+  subgraph SYS["Library Management System"]
+    BorrowBook([Borrow Book])
+    ReturnBook([Return Book])
+    ManageBooks([Manage Books])
+    ManageBorrowings([Manage Borrowings])
+  end
+  
+  Student --> BorrowBook
+  Student --> ReturnBook
+  Librarian --> ManageBooks
+  Librarian --> ManageBorrowings
