@@ -1,0 +1,29 @@
+classDiagram
+class Student {
++studentId: Integer
++name: String
++email: String
++borrowBook(bookId): Boolean
++returnBook(bookId): Boolean
+}
+class Librarian {
++librarianId: Integer
++name: String
++email: String
++manageBooks(): void
++manageBorrowings(): void
+}
+class Book {
++bookId: Integer
++title: String
++author: String
++isbn: String
+}
+class Borrowing {
++borrowingId: Integer
++borrowDate: Date
++returnDate: Date
+}
+Student "1" --> "0..*" Borrowing : borrows
+Book "1" --> "0..*" Borrowing : is borrowed in
+Librarian "1" --> "0..*" Book : manages
